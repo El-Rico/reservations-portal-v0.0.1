@@ -20,6 +20,7 @@ import {
 	MagnifyingGlassIcon,
 	XMarkIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import { Suspense, useState } from "react";
 
 // function classNames(...classes) {
@@ -152,10 +153,12 @@ export default function DashboardLayout({
 									<MenuButton className="relative flex items-center">
 										<span className="absolute -inset-1.5" />
 										<span className="sr-only">Open user menu</span>
-										<img
+										<Image
 											alt=""
-											src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-											className="size-8 rounded-full bg-gray-50"
+											src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"
+											className="rounded-full bg-gray-50"
+											width={32}
+											height={32}
 										/>
 										<span className="hidden lg:flex lg:items-center">
 											<span
