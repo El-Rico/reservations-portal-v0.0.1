@@ -9,7 +9,7 @@ export default async function DashboardStudents() {
 
 	return (
 		<>
-			<h1>Students</h1>
+			<h1>Students!</h1>
 			<ul>
 				{students.map((student) => (
 					<li key={student.id}>
