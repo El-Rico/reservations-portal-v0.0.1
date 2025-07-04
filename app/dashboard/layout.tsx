@@ -156,16 +156,18 @@ export default function DashboardLayout({
 										<Image
 											alt=""
 											src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"
-											className="rounded-full bg-gray-50"
+											className=" bg-gray-50"
 											width={32}
 											height={32}
+											style={{ objectFit: "contain" }}
+											loading="lazy"
 										/>
 										<span className="hidden lg:flex lg:items-center">
 											<span
 												aria-hidden="true"
 												className="ml-4 text-sm/6 font-semibold text-gray-900"
 											>
-												Tom Cook
+												Rick Snackers
 											</span>
 											<ChevronDownIcon
 												aria-hidden="true"
