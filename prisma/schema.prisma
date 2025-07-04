@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+    provider = "prisma-client-js"
+    output   = "../app/generated/prisma"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Student {
+    id            Int        @id @default(autoincrement())
+    username      String     @unique
+    email         String     @unique
+    password      String
+    first_name    String?
+    last_name     String?
+    occupation    Occupation @default(FULL)
+    credit        Int        @default(0)
+    acceptedTerms Boolean    @default(false)
+    isStudent     Boolean    @default(true)
+    isAdmin       Boolean    @default(false)
+    lessons       Lesson[]
+    classes       Class[]
+    createdAt     DateTime   @default(now())
+    modifiedAt    DateTime   @default(now())
+}
+
+model Lesson {
+    id         Int       @id @default(autoincrement())
+    name       String
+    date       DateTime
+    capacity   Int
+    cancelled  Boolean
+    students   Student[]
+    classes    Class[]
+    createdAt  DateTime  @default(now())
+    modifiedAt DateTime  @default(now())
+}
+
+model Class {
+    id         Int       @id @default(autoincrement())
+    name       String
+    students   Student[]
+    courses    Course[]
+    lessons    Lesson[]
+    createdAt  DateTime  @default(now())
+    modifiedAt DateTime  @default(now())
+}
+
+model Course {
+    id         Int      @id @default(autoincrement())
+    name       String
+    classes    Class[]
+    createdAt  DateTime @default(now())
+    modifiedAt DateTime @default(now())
+}
+
+enum Occupation {
+    FULL
+    EVEN
+    ODD
+}
