@@ -103,7 +103,7 @@ export default function DashboardLayout({
 				</div>
 
 				<div className="lg:pl-72">
-					<div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8">
+					<div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8 dark:bg-gray-800 dark:border-gray-600">
 						<button
 							type="button"
 							onClick={() => setSidebarOpen(true)}
@@ -126,7 +126,7 @@ export default function DashboardLayout({
 									type="search"
 									placeholder="Search"
 									aria-label="Search"
-									className="col-start-1 row-start-1 block size-full bg-white pl-8 text-base text-gray-900 outline-hidden placeholder:text-gray-400 sm:text-sm/6"
+									className="col-start-1 row-start-1 block size-full bg-whit dark:bg-gray-800 pl-8 text-base text-gray-900 outline-hidden placeholder:text-gray-400 sm:text-sm/6"
 								/>
 								<MagnifyingGlassIcon
 									aria-hidden="true"
@@ -165,7 +165,7 @@ export default function DashboardLayout({
 										<span className="hidden lg:flex lg:items-center">
 											<span
 												aria-hidden="true"
-												className="ml-4 text-sm/6 font-semibold text-gray-900"
+												className="ml-4 text-sm/6 font-semibold text-gray-900 dark:text-white"
 											>
 												Rick Snackers
 											</span>
