@@ -1,14 +1,9 @@
 import PageTitle from "@/components/common/page-title";
 import prisma from "@/lib/prisma";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import {
-	CheckIcon,
-	HandThumbDownIcon,
-	HandThumbUpIcon,
-	XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Student } from "@prisma/client";
-import { format, setDefaultOptions } from "date-fns";
+import { setDefaultOptions } from "date-fns";
 import { nl } from "date-fns/locale";
 import { Metadata } from "next";
 
@@ -117,7 +112,15 @@ export default async function DashboardStudents() {
 											{student.email}
 										</td>
 										<td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
-											{student.occupation}
+											{student.occupation === "FULL" ? (
+												<span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">
+													{student.occupation}
+												</span>
+											) : (
+												<span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset">
+													{student.occupation}
+												</span>
+											)}
 										</td>
 										<td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
 											{student.acceptedTerms ? (
@@ -126,7 +129,7 @@ export default async function DashboardStudents() {
 												<XMarkIcon className="text-red-600 size-6" />
 											)}
 										</td>
-										<td className="relative py-4 pr-4 pl-3 text-right text-sm whitespace-nowrap sm:pr-0">
+										<td className="relative py-4 pl-3 text-right text-sm whitespace-nowrap sm:pr-0 lg:pr-4">
 											<a
 												href="#"
 												className="text-indigo-600 hover:text-indigo-900"
