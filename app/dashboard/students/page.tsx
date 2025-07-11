@@ -1,4 +1,5 @@
 import PageTitle from "@/components/common/page-title";
+import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -6,6 +7,7 @@ import { Student } from "@prisma/client";
 import { setDefaultOptions } from "date-fns";
 import { nl } from "date-fns/locale";
 import { Metadata } from "next";
+import Link from "next/link";
 
 setDefaultOptions({ locale: nl });
 
@@ -27,12 +29,12 @@ export default async function DashboardStudents() {
 					/>
 				</div>
 				<div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-					<button
-						type="button"
+					<Button
+						asChild
 						className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 					>
-						New student
-					</button>
+						<Link href="/dashboard/students/new">Add new student</Link>
+					</Button>
 				</div>
 			</div>
 			<div className="mt-8 flow-root">
