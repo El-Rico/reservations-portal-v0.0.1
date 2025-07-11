@@ -3,6 +3,7 @@
 import {
 	AcademicCapIcon,
 	HomeIcon,
+	InformationCircleIcon,
 	UsersIcon,
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
@@ -13,6 +14,7 @@ const navigation = [
 	{ name: "Dashboard", href: "/dashboard", icon: HomeIcon },
 	{ name: "Students", href: "/dashboard/students", icon: UsersIcon },
 	{ name: "Lessons", href: "/dashboard/lessons", icon: AcademicCapIcon },
+	{ name: "Logs", href: "/dashboard/logs", icon: InformationCircleIcon },
 ];
 
 export default function DashboardNavigation() {
