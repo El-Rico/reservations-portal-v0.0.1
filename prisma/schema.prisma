@@ -30,6 +30,8 @@ model Student {
     classes       Class[]
     createdAt     DateTime   @default(now())
     modifiedAt    DateTime   @default(now())
+    Log           Log?       @relation(fields: [logId], references: [id])
+    logId         Int?
 }
 
 model Lesson {
@@ -42,6 +44,8 @@ model Lesson {
     classes    Class[]
     createdAt  DateTime  @default(now())
     modifiedAt DateTime  @default(now())
+    Log        Log?      @relation(fields: [logId], references: [id])
+    logId      Int?
 }
 
 model Class {
@@ -60,6 +64,14 @@ model Course {
     classes    Class[]
     createdAt  DateTime @default(now())
     modifiedAt DateTime @default(now())
+}
+
+model Log {
+    id        Int       @id @default(autoincrement())
+    message   String
+    students  Student[]
+    lessons   Lesson[]
+    createdAt DateTime  @default(now())
 }
 
 enum Occupation {
