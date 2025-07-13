@@ -11,6 +11,7 @@ export const newStudentFormSchema = z.object({
 	occupation: z.enum(["FULL", "EVEN", "ODD"]),
 	credit: z.int(),
 	acceptedTerms: z.boolean(),
+	isActive: z.boolean(),
 	isStudent: z.boolean(),
 	isAdmin: z.boolean(),
 	lessons: z.array(z.string()).nullable(),

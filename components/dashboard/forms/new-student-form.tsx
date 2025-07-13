@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
 	Form,
 	FormControl,
@@ -46,7 +47,7 @@ export default function NewStudentForm() {
 		<>
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-					<div className="grid grid-rows-1 gap-4 sm:grid-cols-1 lg:grid-cols-3">
+					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-3">
 						<FormField
 							control={form.control}
 							name="username"
@@ -81,6 +82,81 @@ export default function NewStudentForm() {
 									<FormLabel>Last name</FormLabel>
 									<FormControl>
 										<Input {...field} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
+						<FormField
+							control={form.control}
+							name="email"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Email address</FormLabel>
+									<FormControl>
+										<Input {...field} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name="password"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Password</FormLabel>
+									<FormControl>
+										<Input {...field} type="password" />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-3">
+						<FormField
+							control={form.control}
+							name="credit"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Credits</FormLabel>
+									<FormControl>
+										<Input {...field} type="number" />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name="acceptedTerms"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Accepted terms</FormLabel>
+									<FormControl>
+										<Checkbox
+											checked={field.value}
+											onCheckedChange={field.onChange}
+										/>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name="isActive"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Active</FormLabel>
+									<FormControl>
+										<Checkbox
+											checked={field.value}
+											onCheckedChange={field.onChange}
+										/>
 									</FormControl>
 									<FormMessage />
 								</FormItem>

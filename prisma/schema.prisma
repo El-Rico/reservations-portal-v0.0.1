@@ -24,6 +24,7 @@ model Student {
     occupation    Occupation @default(FULL)
     credit        Int        @default(0)
     acceptedTerms Boolean    @default(false)
+    isActive      Boolean    @default(true)
     isStudent     Boolean    @default(true)
     isAdmin       Boolean    @default(false)
     lessons       Lesson[]
