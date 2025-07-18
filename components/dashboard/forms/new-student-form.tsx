@@ -152,9 +152,13 @@ export default function NewStudentForm() {
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
-											<SelectItem value="FULL">Full</SelectItem>
-											<SelectItem value="EVEN">Even</SelectItem>
-											<SelectItem value="ODD">Odd</SelectItem>
+											{newStudentFormSchema.shape.occupation.options.map(
+												(option: string) => (
+													<SelectItem key={option} value={option}>
+														{option}
+													</SelectItem>
+												)
+											)}
 										</SelectContent>
 									</Select>
 									<FormMessage />
