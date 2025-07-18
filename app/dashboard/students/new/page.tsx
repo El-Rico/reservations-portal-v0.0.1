@@ -31,7 +31,14 @@ export default function DashboardStudentsNew() {
 					</Button>
 				</div>
 			</div>
-			<NewStudentForm />
+			<div className="mt-4 flex flex-col gap-8 sm:flex-row">
+				<div className="p-6 rounded-lg shadow-md sm:w-full lg:w-2/3">
+					<NewStudentForm />
+				</div>
+				<div className="sm:w-full lg:w-1/3">
+					<h2 className="font-bold text-xl">Lessons</h2>
+				</div>
+			</div>
 		</>
 	);
 }

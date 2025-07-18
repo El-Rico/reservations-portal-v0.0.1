@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
 	Form,
 	FormControl,
@@ -11,6 +10,14 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import { newStudentFormSchema } from "@/lib/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -31,6 +38,7 @@ export default function NewStudentForm() {
 			acceptedTerms: false,
 			isStudent: true,
 			isAdmin: false,
+			isActive: true,
 			lessons: [],
 			classes: [],
 		},
@@ -115,8 +123,6 @@ export default function NewStudentForm() {
 								</FormItem>
 							)}
 						/>
-					</div>
-					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-3">
 						<FormField
 							control={form.control}
 							name="credit"
@@ -132,12 +138,39 @@ export default function NewStudentForm() {
 						/>
 						<FormField
 							control={form.control}
+							name="occupation"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Occupation</FormLabel>
+									<Select
+										onValueChange={field.onChange}
+										defaultValue={field.value}
+									>
+										<FormControl>
+											<SelectTrigger className="w-full">
+												<SelectValue placeholder="Select occupation" />
+											</SelectTrigger>
+										</FormControl>
+										<SelectContent>
+											<SelectItem value="FULL">Full</SelectItem>
+											<SelectItem value="EVEN">Even</SelectItem>
+											<SelectItem value="ODD">Odd</SelectItem>
+										</SelectContent>
+									</Select>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4">
+						<FormField
+							control={form.control}
 							name="acceptedTerms"
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel>Accepted terms</FormLabel>
 									<FormControl>
-										<Checkbox
+										<Switch
 											checked={field.value}
 											onCheckedChange={field.onChange}
 										/>
@@ -153,7 +186,39 @@ export default function NewStudentForm() {
 								<FormItem>
 									<FormLabel>Active</FormLabel>
 									<FormControl>
-										<Checkbox
+										<Switch
+											checked={field.value}
+											onCheckedChange={field.onChange}
+										/>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name="isStudent"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Student</FormLabel>
+									<FormControl>
+										<Switch
+											checked={field.value}
+											onCheckedChange={field.onChange}
+										/>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name="isAdmin"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Admin rights</FormLabel>
+									<FormControl>
+										<Switch
 											checked={field.value}
 											onCheckedChange={field.onChange}
 										/>
@@ -163,7 +228,7 @@ export default function NewStudentForm() {
 							)}
 						/>
 					</div>
-					<Button type="submit">Submit</Button>
+					<Button type="submit">Add new student</Button>
 				</form>
 			</Form>
 		</>
