@@ -39,8 +39,7 @@ export default function NewStudentForm() {
 			isStudent: true,
 			isAdmin: false,
 			isActive: true,
-			lessons: [],
-			classes: [],
+			classes: "",
 		},
 	});
 
@@ -159,6 +158,31 @@ export default function NewStudentForm() {
 													</SelectItem>
 												)
 											)}
+										</SelectContent>
+									</Select>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name="classes"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Class</FormLabel>
+									<Select
+										onValueChange={field.onChange}
+										defaultValue={field.value ?? undefined}
+									>
+										<FormControl>
+											<SelectTrigger className="w-full">
+												<SelectValue placeholder="Select class" />
+											</SelectTrigger>
+										</FormControl>
+										<SelectContent>
+											<SelectItem value="MA1">MA1</SelectItem>
+											<SelectItem value="MA2">MA2</SelectItem>
+											<SelectItem value="MA3">MA3</SelectItem>
 										</SelectContent>
 									</Select>
 									<FormMessage />

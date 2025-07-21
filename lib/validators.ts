@@ -14,6 +14,5 @@ export const newStudentFormSchema = z.object({
 	isActive: z.boolean(),
 	isStudent: z.boolean(),
 	isAdmin: z.boolean(),
-	lessons: z.array(z.string()).nullable(),
-	classes: z.array(z.string()).nullable(),
+	classes: z.string().nullable(),
 });
