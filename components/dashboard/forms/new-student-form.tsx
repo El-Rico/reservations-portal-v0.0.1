@@ -40,6 +40,7 @@ export default function NewStudentForm() {
 			isAdmin: false,
 			isActive: true,
 			classes: "",
+			lessons: [],
 		},
 	});
 

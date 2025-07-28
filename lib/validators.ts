@@ -1,5 +1,3 @@
-"use client";
-
 import { z } from "zod";
 
 export const newStudentFormSchema = z.object({
@@ -9,10 +7,16 @@ export const newStudentFormSchema = z.object({
 	first_name: z.string().min(2, "Use a minimum of 2 characters."),
 	last_name: z.string().min(2, "Use a minimum of 2 characters."),
 	occupation: z.enum(["FULL", "EVEN", "ODD"]),
-	credit: z.number().lte(3, "Credit cannot be higher than 3."),
+	credit: z.coerce.number().lte(3, "Credits must be 3 or less."),
 	acceptedTerms: z.boolean(),
 	isActive: z.boolean(),
 	isStudent: z.boolean(),
 	isAdmin: z.boolean(),
-	classes: z.string().nullable(),
+	classes: z.string().optional(),
+	lessons: z.array(z.string()).optional(),
+});
+
+export const updateStudentFormSchema = newStudentFormSchema.extend({
+	id: z.string().min(1, "ID is required"),
+	modifiedAt: z.date().optional(),
 });
