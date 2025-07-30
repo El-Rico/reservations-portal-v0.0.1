@@ -25,7 +25,7 @@ import { z } from "zod";
 
 export default function NewStudentForm() {
 	// 1. Define your form.
-	const form = useForm<z.infer<typeof newStudentFormSchema>>({
+	const form = useForm({
 		resolver: zodResolver(newStudentFormSchema),
 		defaultValues: {
 			username: "",

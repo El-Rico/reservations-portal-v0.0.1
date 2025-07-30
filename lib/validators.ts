@@ -7,7 +7,7 @@ export const newStudentFormSchema = z.object({
 	first_name: z.string().min(2, "Use a minimum of 2 characters."),
 	last_name: z.string().min(2, "Use a minimum of 2 characters."),
 	occupation: z.enum(["FULL", "EVEN", "ODD"]),
-	credit: z.coerce.number().lte(3, "Credits must be 3 or less."),
+	credit: z.coerce.number<number>().lte(3, "Credits must be 3 or less."),
 	acceptedTerms: z.boolean(),
 	isActive: z.boolean(),
 	isStudent: z.boolean(),
