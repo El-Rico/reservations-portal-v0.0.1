@@ -21,7 +21,7 @@ import { Switch } from "@/components/ui/switch";
 import { newStudentFormSchema } from "@/lib/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import z from "zod";
+import { z } from "zod";
 
 export default function NewStudentForm() {
 	// 1. Define your form.
