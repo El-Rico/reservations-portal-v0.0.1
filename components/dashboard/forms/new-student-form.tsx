@@ -57,7 +57,7 @@ export default function NewStudentForm() {
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
 					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-3">
 						<FormField
-							control={form.control}
+							{...form.register("username")}
 							name="username"
 							render={({ field }) => (
 								<FormItem>
@@ -70,7 +70,7 @@ export default function NewStudentForm() {
 							)}
 						/>
 						<FormField
-							control={form.control}
+							{...form.register("first_name")}
 							name="first_name"
 							render={({ field }) => (
 								<FormItem>
@@ -83,7 +83,7 @@ export default function NewStudentForm() {
 							)}
 						/>
 						<FormField
-							control={form.control}
+							{...form.register("last_name")}
 							name="last_name"
 							render={({ field }) => (
 								<FormItem>
@@ -98,7 +98,7 @@ export default function NewStudentForm() {
 					</div>
 					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
 						<FormField
-							control={form.control}
+							{...form.register("email")}
 							name="email"
 							render={({ field }) => (
 								<FormItem>
@@ -111,7 +111,7 @@ export default function NewStudentForm() {
 							)}
 						/>
 						<FormField
-							control={form.control}
+							{...form.register("password")}
 							name="password"
 							render={({ field }) => (
 								<FormItem>
@@ -124,7 +124,7 @@ export default function NewStudentForm() {
 							)}
 						/>
 						<FormField
-							control={form.control}
+							{...form.register("credit")}
 							name="credit"
 							render={({ field }) => (
 								<FormItem>
@@ -136,8 +136,9 @@ export default function NewStudentForm() {
 								</FormItem>
 							)}
 						/>
+
 						<FormField
-							control={form.control}
+							{...form.register("occupation")}
 							name="occupation"
 							render={({ field }) => (
 								<FormItem>
@@ -166,7 +167,7 @@ export default function NewStudentForm() {
 							)}
 						/>
 						<FormField
-							control={form.control}
+							{...form.register("classes")}
 							name="classes"
 							render={({ field }) => (
 								<FormItem>
@@ -194,8 +195,9 @@ export default function NewStudentForm() {
 								</FormItem>
 							)}
 						/>
+
 						<FormField
-							control={form.control}
+							{...form.register("lessons")}
 							name="lessons"
 							render={({ field }) => (
 								<FormItem>
@@ -222,7 +224,7 @@ export default function NewStudentForm() {
 					</div>
 					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4">
 						<FormField
-							control={form.control}
+							{...form.register("acceptedTerms")}
 							name="acceptedTerms"
 							render={({ field }) => (
 								<FormItem>
@@ -238,7 +240,7 @@ export default function NewStudentForm() {
 							)}
 						/>
 						<FormField
-							control={form.control}
+							{...form.register("isActive")}
 							name="isActive"
 							render={({ field }) => (
 								<FormItem>
@@ -253,8 +255,9 @@ export default function NewStudentForm() {
 								</FormItem>
 							)}
 						/>
+
 						<FormField
-							control={form.control}
+							{...form.register("isStudent")}
 							name="isStudent"
 							render={({ field }) => (
 								<FormItem>
@@ -269,8 +272,9 @@ export default function NewStudentForm() {
 								</FormItem>
 							)}
 						/>
+
 						<FormField
-							control={form.control}
+							{...form.register("isAdmin")}
 							name="isAdmin"
 							render={({ field }) => (
 								<FormItem>
