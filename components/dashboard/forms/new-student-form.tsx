@@ -34,7 +34,7 @@ export default function NewStudentForm() {
 			first_name: "",
 			last_name: "",
 			occupation: "FULL",
-			credit: 0,
+			credit: "0",
 			acceptedTerms: false,
 			isStudent: true,
 			isAdmin: false,
@@ -173,11 +173,40 @@ export default function NewStudentForm() {
 									<FormLabel>Class</FormLabel>
 									<Select
 										onValueChange={field.onChange}
-										defaultValue={field.value ?? undefined}
+										defaultValue={
+											Array.isArray(field.value)
+												? field.value[0] ?? undefined
+												: field.value ?? undefined
+										}
 									>
 										<FormControl>
 											<SelectTrigger className="w-full">
 												<SelectValue placeholder="Select class" />
+											</SelectTrigger>
+										</FormControl>
+										<SelectContent>
+											<SelectItem value="MA1">MA1</SelectItem>
+											<SelectItem value="MA2">MA2</SelectItem>
+											<SelectItem value="MA3">MA3</SelectItem>
+										</SelectContent>
+									</Select>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name="lessons"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Lessons</FormLabel>
+									<Select
+										onValueChange={field.onChange}
+										defaultValue={field.value ?? undefined}
+									>
+										<FormControl>
+											<SelectTrigger className="w-full">
+												<SelectValue placeholder="Select lesson" />
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
