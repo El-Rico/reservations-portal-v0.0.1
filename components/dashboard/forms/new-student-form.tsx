@@ -18,12 +18,13 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
+import { Class } from "@/lib/types";
 import { newStudentFormSchema } from "@/lib/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-export default function NewStudentForm() {
+export default function NewStudentForm({ classes }: { classes: Class[] }) {
 	// 1. Define your form.
 	const form = useForm({
 		resolver: zodResolver(newStudentFormSchema),
@@ -186,9 +187,14 @@ export default function NewStudentForm() {
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
-											<SelectItem value="MA1">MA1</SelectItem>
-											<SelectItem value="MA2">MA2</SelectItem>
-											<SelectItem value="MA3">MA3</SelectItem>
+											{classes.map((classItem) => (
+												<SelectItem
+													key={classItem.id}
+													value={String(classItem.id)}
+												>
+													{classItem.name}
+												</SelectItem>
+											))}
 										</SelectContent>
 									</Select>
 									<FormMessage />

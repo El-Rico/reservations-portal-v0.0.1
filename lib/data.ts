@@ -21,7 +21,7 @@ export default async function addNewStudent(
 	return response;
 }
 
-export async function getAllStudents() {
+export async function getStudents() {
 	const students = await prisma.student.findMany({
 		include: {
 			lessons: true,
@@ -29,4 +29,14 @@ export async function getAllStudents() {
 		},
 	});
 	return students;
+}
+
+export async function getClasses() {
+	try {
+		const classes = await prisma.class.findMany();
+		return classes;
+	} catch (error) {
+		console.error("Error fetching classes:", error);
+		throw new Error("Failed to fetch classes");
+	}
 }
