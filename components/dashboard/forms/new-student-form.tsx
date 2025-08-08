@@ -19,10 +19,12 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
+import addNewStudent from "@/lib/data";
 import { Class } from "@/lib/types";
 import { newStudentFormSchema } from "@/lib/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 export default function NewStudentForm({ classes }: { classes: Class[] }) {
@@ -41,16 +43,16 @@ export default function NewStudentForm({ classes }: { classes: Class[] }) {
 			isStudent: true,
 			isAdmin: false,
 			isActive: true,
-			classes: "",
+			classes: undefined,
 			lessons: undefined,
 		},
 	});
 
 	// 2. Define a submit handler.
-	function onSubmit(values: z.infer<typeof newStudentFormSchema>) {
-		// Do something with the form values.
-		// ✅ This will be type-safe and validated.
-		console.log(values);
+	async function onSubmit(values: z.infer<typeof newStudentFormSchema>) {
+		const response = await addNewStudent(values);
+		toast.success("Student created successfully");
+		console.log("New student added:", response);
 	}
 
 	return (

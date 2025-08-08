@@ -2,6 +2,7 @@ import PageTitle from "@/components/common/page-title";
 import NewStudentForm from "@/components/dashboard/forms/new-student-form";
 import { Button } from "@/components/ui/button";
 import { getClasses } from "@/lib/data";
+
 import { Class } from "@/lib/types";
 import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline";
 import { Metadata } from "next";
@@ -38,9 +39,6 @@ export default async function DashboardStudentsNew() {
 			<div className="mt-4 flex flex-col gap-8 sm:flex-row">
 				<div className="p-6 rounded-lg shadow-md sm:w-full lg:w-2/3">
 					<NewStudentForm classes={classes} />
-				</div>
-				<div className="sm:w-full lg:w-1/3">
-					<h2 className="font-bold text-xl">Lessons</h2>
 				</div>
 			</div>
 		</>

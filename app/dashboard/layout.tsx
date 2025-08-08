@@ -2,6 +2,7 @@
 
 import CompanyLogo from "@/components/dashboard/company-logo";
 import DashboardNavigation from "@/components/dashboard/navigation";
+import { Toaster } from "@/components/ui/sonner";
 import {
 	Dialog,
 	DialogBackdrop,
@@ -208,6 +209,7 @@ export default function DashboardLayout({
 					</main>
 				</div>
 			</div>
+			<Toaster />
 		</>
 	);
 }
