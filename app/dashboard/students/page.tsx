@@ -1,9 +1,9 @@
 import PageTitle from "@/components/common/page-title";
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
+import { Student } from "@/lib/types";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Student } from "@prisma/client";
 import { setDefaultOptions } from "date-fns";
 import { nl } from "date-fns/locale";
 import { Metadata } from "next";

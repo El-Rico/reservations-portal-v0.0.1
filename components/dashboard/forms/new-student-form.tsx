@@ -61,7 +61,7 @@ export default function NewStudentForm({ classes }: { classes: Class[] }) {
 		<>
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-3">
+					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-3 align-items-start">
 						<FormField
 							{...form.register("username")}
 							name="username"

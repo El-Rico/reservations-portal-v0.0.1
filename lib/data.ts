@@ -24,7 +24,7 @@ export default async function addNewStudent(
 
 			await tx.log.create({
 				data: {
-					message: `New student: ${student.first_name} ${student.last_name} (ID: ${student.id} EMAIL: ${student.email}).`,
+					message: `Created new student: ${student.first_name} ${student.last_name} (ID: ${student.id} EMAIL: ${student.email}).`,
 					students: {
 						connect: {
 							id: student.id,

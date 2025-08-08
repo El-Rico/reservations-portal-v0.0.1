@@ -19,8 +19,8 @@ model Student {
     username      String     @unique
     email         String     @unique
     password      String
-    first_name    String?
-    last_name     String?
+    first_name    String
+    last_name     String
     occupation    Occupation @default(FULL)
     credit        Int        @default(0)
     acceptedTerms Boolean    @default(false)
