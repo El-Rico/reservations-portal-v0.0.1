@@ -8,22 +8,38 @@ export default async function addNewStudent(
 	studentData: z.infer<typeof newStudentFormSchema>
 ) {
 	try {
-		const { lessons, classes, ...data } = studentData;
+		const newStudent = await prisma.$transaction(async (tx) => {
+			const { lessons, classes, ...data } = studentData;
 
-		const response = await prisma.student.create({
-			data: {
-				...data,
-				lessons:
-					lessons && lessons.length > 0
-						? { connect: lessons.map((id) => ({ id: Number(id) })) }
-						: undefined,
-				classes: classes ? { connect: [{ id: Number(classes) }] } : undefined,
-			},
+			const student = await tx.student.create({
+				data: {
+					...data,
+					lessons:
+						lessons && lessons.length > 0
+							? { connect: lessons.map((id) => ({ id: Number(id) })) }
+							: undefined,
+					classes: classes ? { connect: [{ id: Number(classes) }] } : undefined,
+				},
+			});
+
+			await tx.log.create({
+				data: {
+					message: `Created new student: ${student.first_name} ${student.last_name} (ID: ${student.id} EMAIL: ${student.email}).`,
+					students: {
+						connect: {
+							id: student.id,
+						},
+					},
+				},
+			});
+
+			return student;
 		});
-		return response;
+
+		return newStudent;
 	} catch (error) {
-		console.error("Error creating student:", error);
-		throw new Error("Failed to create student");
+		console.error("Error creating student and log entry:", error);
+		throw new Error("Failed to create student.");
 	}
 }
 

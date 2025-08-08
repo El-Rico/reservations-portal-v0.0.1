@@ -23,6 +23,7 @@ import addNewStudent from "@/lib/data";
 import { Class } from "@/lib/types";
 import { newStudentFormSchema } from "@/lib/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { redirect } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -53,6 +54,7 @@ export default function NewStudentForm({ classes }: { classes: Class[] }) {
 		const response = await addNewStudent(values);
 		toast.success("Student created successfully");
 		console.log("New student added:", response);
+		redirect("/dashboard/students");
 	}
 
 	return (
