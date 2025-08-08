@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
 	Form,
 	FormControl,
+	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -228,20 +229,24 @@ export default function NewStudentForm({ classes }: { classes: Class[] }) {
 							)}
 						/>
 					</div>
-					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4">
+					<div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
 						<FormField
 							{...form.register("acceptedTerms")}
 							name="acceptedTerms"
 							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Accepted terms</FormLabel>
+								<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+									<div className="space-y-0.5">
+										<FormLabel>Accept terms</FormLabel>
+										<FormDescription>
+											This user has accepted the terms.
+										</FormDescription>
+									</div>
 									<FormControl>
 										<Switch
 											checked={field.value}
 											onCheckedChange={field.onChange}
 										/>
 									</FormControl>
-									<FormMessage />
 								</FormItem>
 							)}
 						/>
@@ -249,49 +254,57 @@ export default function NewStudentForm({ classes }: { classes: Class[] }) {
 							{...form.register("isActive")}
 							name="isActive"
 							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Active</FormLabel>
+								<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+									<div className="space-y-0.5">
+										<FormLabel>Active</FormLabel>
+										<FormDescription>
+											This user is able to login.
+										</FormDescription>
+									</div>
 									<FormControl>
 										<Switch
 											checked={field.value}
 											onCheckedChange={field.onChange}
 										/>
 									</FormControl>
-									<FormMessage />
 								</FormItem>
 							)}
 						/>
-
 						<FormField
 							{...form.register("isStudent")}
 							name="isStudent"
 							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Student</FormLabel>
+								<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+									<div className="space-y-0.5">
+										<FormLabel>Student</FormLabel>
+										<FormDescription>This user is a student.</FormDescription>
+									</div>
 									<FormControl>
 										<Switch
 											checked={field.value}
 											onCheckedChange={field.onChange}
 										/>
 									</FormControl>
-									<FormMessage />
 								</FormItem>
 							)}
 						/>
-
 						<FormField
 							{...form.register("isAdmin")}
 							name="isAdmin"
 							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Admin rights</FormLabel>
+								<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+									<div className="space-y-0.5">
+										<FormLabel>Admin</FormLabel>
+										<FormDescription>
+											This user has admin permissions.
+										</FormDescription>
+									</div>
 									<FormControl>
 										<Switch
 											checked={field.value}
 											onCheckedChange={field.onChange}
 										/>
 									</FormControl>
-									<FormMessage />
 								</FormItem>
 							)}
 						/>
